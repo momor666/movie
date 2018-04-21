@@ -1,13 +1,20 @@
 import React from 'react';
-import glamorous, {ThemeProvider} from 'glamorous';
+import glamorous from 'glamorous';
 
-const { P } = glamorous;
+const  H1  = glamorous.h1({
+  color: 'red',
+  marginTop: '0'
+});
+const Div = glamorous.div({
+  color: 'yellow',
+  background: 'blue'
+})
 
 const Header = () => (
-  <div>
-    <P color="red">Hello, HEAD.</P>
+  <Div color="blue">
+    <H1>Movies</H1>
     <p>Header, again</p>
-  </div>
+  </Div>
 )
 
 export default Header
