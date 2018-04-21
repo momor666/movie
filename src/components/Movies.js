@@ -6,7 +6,7 @@ import Search from './Search';
 class Movies extends Component {
   state = {
     title: 'Hello World',
-    year: null,
+    year: 2018,
     image: null,
     description: 'This is a poor description...',
   }
