@@ -1,24 +1,25 @@
-import React, { Component } from 'react';
-import glamorous from 'glamorous';
-import Header from './components/Header';
-import Movies from './components/Movies';
+import React, { Component } from "react";
+import glamorous from "glamorous";
+import Movies from "./components/Movies";
 
 const Div = glamorous.div({
-  minHeight: '100vh',
-  maxHeight: '100vh',
-  background: 'blue',
-  textAlign: 'center',
-})
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  height: "100vh",
+  width: "100vw",
+  background: "#001f3f",
+  fontFamily: "Open Sans, sans-serif",
+  fontSize: "18px"
+});
 
 class App extends Component {
-  state = {
-  }
+  state = {};
   render = () => (
     <Div>
-      <Header />
       <Movies />
     </Div>
-  )
-};
+  );
+}
 
 export default App;
