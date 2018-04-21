@@ -32,7 +32,7 @@ class Movies extends Component {
     }))
   }
   render = () => (
-    <MoviesContainer>
+    <MovieContainer>
       <Search
         getMovie={this.getMovie}
       />
@@ -41,11 +41,11 @@ class Movies extends Component {
         <img src={this.state.image} alt="" />
         <p>{this.state.description}</p>
       </Movie>
-    </MoviesContainer>
+    </MovieContainer>
   )
 }
 
-const MoviesContainer = glamorous.div({
+const MovieContainer = glamorous.div({
   display: 'flex',
   flexDirection: 'column',
   width: '100%',
