@@ -1,34 +1,66 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import glamorous from 'glamorous';
-
-const MoviesContainer = glamorous.div({
-  display: 'flex',
-  flexdirection: 'column',
-  justifyContent: 'center',
-  justifySelf: 'center',
-  alignContent: 'center',
-  height: '50%',
-  width: '50%',
-  background: 'blue',
-  border: '1px solid black',
-});
-
-const Movie = glamorous.div({
-  color: 'red',
-})
+import Search from './Search';
 
 class Movies extends Component {
   state = {
-
+    title: 'Hello World',
+    year: null,
+    image: null,
+    description: 'This is a poor description...',
+  }
+  getMovie = (e) => {
+    e.preventDefault();
+    const title = (e.target.test.value)
+    const url = `http://www.omdbapi.com/?apikey=42dc3460&t=${title}`
+    axios.get(url)
+    .then((response) => {
+      console.log(response.data)
+      this.setMovie(response.data);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  }
+  setMovie = (movie) => {
+    this.setState(() => ({
+      title: movie.Title,
+      year: movie.Year,
+      image: movie.Poster,
+      description: movie.Plot,
+    }))
   }
   render = () => (
     <MoviesContainer>
+      <Search
+        getMovie={this.getMovie}
+      />
       <Movie>
-
-        <p>Header, again</p>
+        <h3>{this.state.title} ({this.state.year})</h3>
+        <img src={this.state.image} alt="" />
+        <p>{this.state.description}</p>
       </Movie>
     </MoviesContainer>
   )
 }
+
+const MoviesContainer = glamorous.div({
+  display: 'flex',
+  flexDirection: 'column',
+  width: '100%',
+  background: 'white',
+});
+
+const Movie = glamorous.div({
+  display: 'flex',
+  flexDirection: 'column',
+  alignSelf: 'center',
+  height: '30rem',
+  width: '50rem',
+  color: 'red',
+  border: '1px solid black',
+  background: 'green',
+});
 
 export default Movies;
