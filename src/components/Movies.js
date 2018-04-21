@@ -13,8 +13,7 @@ class Movies extends Component {
       "A cynical nightclub owner protects an old flame and her husband from Nazis in Morocco.",
     director: "Michael Curtiz",
     rating: 8.5,
-    runtime: "102 min",
-    awards: "Won 3 Oscars. Another 5 wins & 9 nominations."
+    runtime: "102 min"
   };
   getMovie = e => {
     e.preventDefault();
@@ -38,8 +37,7 @@ class Movies extends Component {
       description: movie.Plot,
       director: movie.Director,
       rating: movie.imdbRating,
-      runtime: movie.Runtime,
-      awards: movie.Awards
+      runtime: movie.Runtime
     }));
   };
   render = () => (
@@ -54,8 +52,6 @@ class Movies extends Component {
           <h3>Rating: {this.state.rating}</h3>
           <h3>Director: {this.state.director}</h3>
           <h3>Runtime: {this.state.runtime}</h3>
-          {/* <h2>Awards:</h2> */}
-          <p>{this.state.awards}</p>
         </ContentContainer>
         <ImageContainer>
           <Image src={this.state.image} alt="" />
