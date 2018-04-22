@@ -2,16 +2,17 @@ import React, { Component } from "react";
 import axios from "axios";
 import glamorous from "glamorous";
 import Search from "./Search";
+import { colour, size } from "./Constants";
 
 class Movies extends Component {
   state = {
-    title: "Casablanca",
+    title: "casablanca",
     year: 1942,
     image:
-      "https://ia.media-imdb.com/images/M/MV5BNzk2M2Y3MzYtNGMzMi00Y2FjLTkwODQtNmExYWU3ZWY3NzExXkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_SX300.jpg",
+      "https://images-na.ssl-images-amazon.com/images/M/MV5BY2IzZGY2YmEtYzljNS00NTM5LTgwMzUtMzM1NjQ4NGI0OTk0XkEyXkFqcGdeQXVyNDYyMDk5MTU@._V1_SX300.jpg",
     description:
       "A cynical nightclub owner protects an old flame and her husband from Nazis in Morocco.",
-    director: "Michael Curtiz",
+    director: "michael curtiz",
     rating: 8.5,
     runtime: "102 min"
   };
@@ -22,7 +23,6 @@ class Movies extends Component {
     axios
       .get(url)
       .then(response => {
-        console.log(response.data);
         this.setMovie(response.data);
       })
       .catch(error => {
@@ -31,64 +31,54 @@ class Movies extends Component {
   };
   setMovie = movie => {
     this.setState(() => ({
-      title: movie.Title,
+      title: movie.Title.toLowerCase(),
       year: movie.Year,
       image: movie.Poster,
       description: movie.Plot,
-      director: movie.Director,
+      director: movie.Director.toLowerCase(),
       rating: movie.imdbRating,
       runtime: movie.Runtime
     }));
   };
   render = () => (
-    <MovieContainer>
-      <Movie>
-        <ContentContainer>
-          <Search getMovie={this.getMovie} />
-          <H1>
-            {this.state.title} ({this.state.year})
-          </H1>
-          <P>{this.state.description}</P>
-          <h3>Rating: {this.state.rating}</h3>
-          <h3>Director: {this.state.director}</h3>
-          <h3>Runtime: {this.state.runtime}</h3>
-        </ContentContainer>
-        <ImageContainer>
-          <Image src={this.state.image} alt="" />
-        </ImageContainer>
-      </Movie>
-    </MovieContainer>
+    <Movie>
+      <ContentContainer>
+        <Search getMovie={this.getMovie} />
+        <H1>
+          {this.state.title} ({this.state.year})
+        </H1>
+        <p>{this.state.description}</p>
+        <H3>rating: {this.state.rating}</H3>
+        <H3>director: {this.state.director}</H3>
+        <H3>runtime: {this.state.runtime}</H3>
+      </ContentContainer>
+      <ImageContainer>
+        <Image src={this.state.image} alt="" />
+      </ImageContainer>
+    </Movie>
   );
 }
 
-const MovieContainer = glamorous.div({
-  display: "flex",
-  flexDirection: "column",
-  // width: "100%",
-  background: "#001f3f"
-});
-
 const Movie = glamorous.div({
   display: "flex",
-  justifyContent: "space-between",
   alignSelf: "center",
-  padding: "2em",
+  padding: size.large,
   width: "50rem",
-  color: "#001f3f",
-  background: "#FFDC00",
-  opacity: "0.9"
+  color: colour.blue,
+  background: colour.yellow,
+  boxShadow: `4px 4px 4px ${colour.blue}`
 });
 
 const ContentContainer = glamorous.div({
   width: "60%",
-  paddingRight: "1.5em",
-  borderRight: "3px solid #001f3f"
+  paddingRight: size.medium,
+  borderRight: `3px solid ${colour.red}`
 });
 
 const ImageContainer = glamorous.div({
   width: "300px",
   height: "450px",
-  paddingLeft: "1.5em"
+  paddingLeft: size.medium
 });
 
 const Image = glamorous.img({
@@ -97,10 +87,12 @@ const Image = glamorous.img({
 });
 
 const H1 = glamorous.h1({
-  fontFamily: "Open Sans, sans-serif"
+  fontFamily: "Open Sans, sans-serif",
+  fontVariant: "small-caps"
 });
 
-const P = glamorous.p({
-  color: "#555555"
+const H3 = glamorous.h3({
+  fontVariant: "small-caps"
 });
+
 export default Movies;

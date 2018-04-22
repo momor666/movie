@@ -1,6 +1,7 @@
-import React, { Component } from "react";
+import React from "react";
 import glamorous from "glamorous";
 import Movies from "./components/Movies";
+import { colour } from "./components/Constants";
 
 const Div = glamorous.div({
   display: "flex",
@@ -8,18 +9,15 @@ const Div = glamorous.div({
   justifyContent: "center",
   height: "100vh",
   width: "100vw",
-  background: "#001f3f",
+  background: colour.red,
   fontFamily: "Open Sans, sans-serif",
   fontSize: "18px"
 });
 
-class App extends Component {
-  state = {};
-  render = () => (
-    <Div>
-      <Movies />
-    </Div>
-  );
-}
+const App = () => (
+  <Div>
+    <Movies />
+  </Div>
+);
 
 export default App;
