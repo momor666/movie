@@ -53,7 +53,7 @@ class Movies extends Component {
         <H3>runtime: {this.state.runtime}</H3>
       </ContentContainer>
       <ImageContainer>
-        <Image src={this.state.image} alt="" />
+        <Image src={this.state.image} alt={this.state.title} />
       </ImageContainer>
     </Movie>
   );
@@ -87,7 +87,6 @@ const Image = glamorous.img({
 });
 
 const H1 = glamorous.h1({
-  fontFamily: "Open Sans, sans-serif",
   fontVariant: "small-caps"
 });
 
