@@ -12,4 +12,10 @@ const size = {
   xlarge: "3em"
 };
 
-export { colour, size };
+const screen = {
+  mobile: "768px",
+  tablet: "992px",
+  desktop: "1200px",
+}
+
+export { colour, size, screen };
