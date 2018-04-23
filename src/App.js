@@ -1,7 +1,7 @@
 import React from "react";
 import glamorous from "glamorous";
 import Movies from "./components/Movies";
-import { colour } from "./components/Constants";
+import { colour, screen } from "./components/Constants";
 
 const Div = glamorous.div({
   display: "flex",
@@ -11,7 +11,12 @@ const Div = glamorous.div({
   width: "100vw",
   background: colour.red,
   fontFamily: "Open Sans, sans-serif",
-  fontSize: "18px"
+  fontSize: "18px",
+  [screen.mobile]: {
+    background: colour.yellow,
+    fontSize: "16px",
+    height: "auto"
+  }
 });
 
 const App = () => (

@@ -13,9 +13,9 @@ const size = {
 };
 
 const screen = {
-  mobile: "768px",
-  tablet: "992px",
-  desktop: "1200px",
-}
+  mobile: "@media only screen and (max-width: 768px)",
+  tablet: "@media only screen and (max-width: 992px)",
+  desktop: "@media only screen and (max-width: 1200px)"
+};
 
 export { colour, size, screen };

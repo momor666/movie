@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import glamorous from "glamorous";
 import Search from "./Search";
-import { colour, size } from "./Constants";
+import { colour, size, screen } from "./Constants";
 
 class Movies extends Component {
   state = {
@@ -66,19 +66,34 @@ const Movie = glamorous.div({
   width: "50rem",
   color: colour.blue,
   background: colour.yellow,
-  boxShadow: `4px 4px 4px ${colour.blue}`
+  boxShadow: `4px 4px 4px ${colour.blue}`,
+  [screen.mobile]: {
+    flexDirection: "column",
+    width: "100%",
+    padding: size.small,
+    boxShadow: "none"
+  }
 });
 
 const ContentContainer = glamorous.div({
   width: "60%",
   paddingRight: size.medium,
-  borderRight: `3px solid ${colour.red}`
+  borderRight: `3px solid ${colour.red}`,
+  [screen.mobile]: {
+    width: "100%",
+    borderRight: "none",
+    paddingRight: "0"
+  }
 });
 
 const ImageContainer = glamorous.div({
   width: "300px",
   height: "450px",
-  paddingLeft: size.medium
+  paddingLeft: size.medium,
+  [screen.mobile]: {
+    paddingLeft: "0",
+    margin: "1em auto"
+  }
 });
 
 const Image = glamorous.img({
