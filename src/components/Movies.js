@@ -82,6 +82,7 @@ const ContentContainer = glamorous.div({
   [screen.mobile]: {
     width: "100%",
     borderRight: "none",
+    borderBottom: `3px solid ${colour.red}`,
     paddingRight: "0"
   }
 });
