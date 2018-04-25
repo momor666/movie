@@ -19,7 +19,7 @@ class Movies extends Component {
   getMovie = e => {
     e.preventDefault();
     const title = e.target.test.value;
-    const url = `http://www.omdbapi.com/?apikey=42dc3460&t=${title}`;
+    const url = `https://www.omdbapi.com/?apikey=42dc3460&t=${title}`;
     axios
       .get(url)
       .then(response => {
