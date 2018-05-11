@@ -6,7 +6,7 @@
 
 # Viewable At
 
-* https://msweeneydev.com/movie
+https://msweeneydev.com/movie
 
 # Usage
 
