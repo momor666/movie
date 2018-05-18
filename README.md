@@ -6,8 +6,8 @@
 
 # Viewable At
 
-https://msweeneydev.com/movie
+* https://msweeneydev.com/movie
 
 # Usage
 
-Enter a movie into the search box and hit enter!
+* Enter a movie into the search box and hit enter!
